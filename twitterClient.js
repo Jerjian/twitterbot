@@ -1,7 +1,11 @@
+// These lines make "require" available
+import { createRequire } from "module";
+const require = createRequire(import.meta.url)
+
 let Twit = require("twit")
 import fetch from "node-fetch";
 
-let config = require("./config")
+let config = require("./config.cjs")
 let T = new Twit(config)
 
 let latestPostedStoryID;
