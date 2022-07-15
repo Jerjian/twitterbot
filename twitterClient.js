@@ -1,4 +1,5 @@
 let Twit = require("twit")
+import fetch from "node-fetch";
 
 let config = require("./config")
 let T = new Twit(config)
