@@ -27,6 +27,9 @@ const tweet = async ()=>{
             let description = tickerTickJSON.stories[0].description
             let url = tickerTickJSON.stories[0].url
 
+            description.slice(0, 150)
+            description += "..."
+
             console.log("We have a new Story. Posting.. ", title)
             tags = tickerTickJSON.stories[0].tags
             for (let i = 0; i < tags.length; i++) {
@@ -46,6 +49,9 @@ const tweet = async ()=>{
             let title = tickerTickJSON.stories[0].title
             let description = tickerTickJSON.stories[0].description
             let url = tickerTickJSON.stories[0].url
+
+            description.slice(0, 150)
+            description += "..."
 
             console.log("We have a new Story. Posting.. ", title)
             T.post('statuses/update', {status: `${title}\nDesc: ${description}\n${tagString}\nPowered by TickerTick.com ${url}` }, function (err, data, response) {
