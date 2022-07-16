@@ -34,7 +34,7 @@ const tweet = async ()=>{
             remainingChar -= tagString.length           
         }
 
-        remainingChar -= 10 //a small buffer for the spaces
+        remainingChar -= 30 //a small buffer for the spaces
 
         if(remainingChar > 20) {
             description.slice(0, remainingChar)
@@ -44,7 +44,7 @@ const tweet = async ()=>{
 
         if(!latestPostedStoryID){
             console.log("We have a new Story. Posting.. ", title)
-            T.post('statuses/update', {status: `${title}${description}\n${tagString}\nPowered by TickerTick.com ${url}` }, function (err, data, response) {
+            T.post('statuses/update', {status: `${title}${description}\n${tagString}\nPowered by TickerTick.com${url}` }, function (err, data, response) {
                 console.log(data)
             })
             latestPostedStoryID = tickerTickJSON.stories[0].id
