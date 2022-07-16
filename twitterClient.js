@@ -23,12 +23,17 @@ const tweet = async ()=>{
         let tags;
         let tagString;
         if(!latestPostedStoryID){
-            console.log("We have a new Story. Posting.. ", tickerTickJSON.stories[0].title)
+            let title = tickerTickJSON.stories[0].title
+            let description = tickerTickJSON.stories[0].description
+            let url = tickerTickJSON.stories[0].url
+
+            console.log("We have a new Story. Posting.. ", title)
             tags = tickerTickJSON.stories[0].tags
             for (let i = 0; i < tags.length; i++) {
                 tagString += `$${tags[i].toUpperCase()} `                 
             }
-            T.post('statuses/update', {status: `${tickerTickJSON.stories[0].title}\nDesc: ${tickerTickJSON.stories[0].description}\n${tagString}\nPowered by TickerTick.com ${tickerTickJSON.stories[0].url}` }, function (err, data, response) {
+
+            T.post('statuses/update', {status: `${title}\nDesc: ${description}\n${tagString}\nPowered by TickerTick.com ${url}` }, function (err, data, response) {
                 console.log(data)
             })
             latestPostedStoryID = tickerTickJSON.stories[0].id
@@ -37,8 +42,13 @@ const tweet = async ()=>{
             for (let i = 0; i < tags.length; i++) {
                 tagString += `$${tags[i]} `                 
             }
-            console.log("We have a new Story. Posting.. ", tickerTickJSON.stories[0].title)
-            T.post('statuses/update', {status: `${tickerTickJSON.stories[0].title}\nDesc: ${tickerTickJSON.stories[0].description}\n${tagString}\nPowered by TickerTick.com ${tickerTickJSON.stories[0].url}` }, function (err, data, response) {
+
+            let title = tickerTickJSON.stories[0].title
+            let description = tickerTickJSON.stories[0].description
+            let url = tickerTickJSON.stories[0].url
+
+            console.log("We have a new Story. Posting.. ", title)
+            T.post('statuses/update', {status: `${title}\nDesc: ${description}\n${tagString}\nPowered by TickerTick.com ${url}` }, function (err, data, response) {
                 console.log(data)
             })
             latestPostedStoryID = tickerTickJSON.stories[0].id
