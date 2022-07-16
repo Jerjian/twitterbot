@@ -36,6 +36,8 @@ const tweet = async ()=>{
 
         remainingChar -= 40 //a small buffer for the spaces
 
+
+
         if(remainingChar > 20) {
             description.slice(0, remainingChar)
         }else{
