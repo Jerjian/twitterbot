@@ -45,7 +45,7 @@ const tweet = async ()=>{
 
         if(!latestPostedStoryID){
             console.log("We have a new Story. Posting.. ", title)
-            T.post('statuses/update', {status: `${title}${description}\n${tagString}\nPowered by TickerTick.com${url}` }, function (err, data, response) {
+            T.post('statuses/update', {status: `${title}${description}\n${tagString}\nPowered by TickerTick.com\n${url}` }, function (err, data, response) {
                 console.log(data)
             })
             latestPostedStoryID = tickerTickJSON.stories[0].id
