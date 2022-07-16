@@ -34,7 +34,7 @@ const tweet = async ()=>{
             remainingChar -= tagString.length           
         }
 
-        remainingChar -= 40 //a small buffer for the spaces
+        remainingChar -= 50 //a small buffer for the spaces
 
 
 
