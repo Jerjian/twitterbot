@@ -27,7 +27,7 @@ const tweet = async ()=>{
         let remainingChar = 280 - title.length - url.length
         
         let tags;
-        let tagString;
+        let tagString = "";
         tags = tickerTickJSON.stories[0].tags
         for (let i = 0; i < tags.length; i++) {
             tagString += `$${tags[i].toUpperCase()} `     
