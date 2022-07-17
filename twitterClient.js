@@ -21,8 +21,6 @@ const tweet = async ()=>{
         
         let title = tickerTickJSON.stories[0].title
         let url = tickerTickJSON.stories[0].url
-
-        let remainingChar = 280 - title.length - url.length
         
         let tags;
         let tagString = "";
