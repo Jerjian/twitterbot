@@ -20,8 +20,6 @@ const tweet = async ()=>{
         let tickerTickJSON = await res.json()
         
         let title = tickerTickJSON.stories[0].title
-        let description = tickerTickJSON.stories[0].description
-        description = "\nDesc: " + description
         let url = tickerTickJSON.stories[0].url
 
         let remainingChar = 280 - title.length - url.length
@@ -31,27 +29,17 @@ const tweet = async ()=>{
         tags = tickerTickJSON.stories[0].tags
         for (let i = 0; i < tags.length; i++) {
             tagString += `$${tags[i].toUpperCase()} `     
-            remainingChar -= tagString.length           
-        }
-
-        remainingChar -= 30 //a small buffer for the spaces
-
-
-        if(remainingChar > 25) {
-            description = description.toString().slice(0, remainingChar)
-        }else{
-            description = ""
         }
 
         if(!latestPostedStoryID){
             console.log("We have a new Story. Posting.. ", title)
-            T.post('statuses/update', {status: `${title}${description}\n${tagString}\nPowered by TickerTick.com\n${url}` }, function (err, data, response) {
+            T.post('statuses/update', {status: `${title}\n${tagString}\nPowered by TickerTick.com\n${url}` }, function (err, data, response) {
                 console.log(data)
             })
             latestPostedStoryID = tickerTickJSON.stories[0].id
         } else if(latestPostedStoryID != tickerTickJSON.stories[0].id){
             console.log("We have a new Story. Posting.. ", title)
-            T.post('statuses/update', {status: `${title}${description}\n${tagString}\nPowered by TickerTick.com ${url}` }, function (err, data, response) {
+            T.post('statuses/update', {status: `${title}\n${tagString}\nPowered by TickerTick.com ${url}` }, function (err, data, response) {
                 console.log(data)
             })
             latestPostedStoryID = tickerTickJSON.stories[0].id
