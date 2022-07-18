@@ -15,7 +15,7 @@ const tweet = async ()=>{
     try{
         //get 50 of the latest META news in the last hour 
         console.log("Fetching...")
-        let res = await fetch("https://api.tickertick.com/feed?q=(and (or tt:amzn tt:aapl tt:nflx tt:meta tt:goog tt:msft tt:tsla) (or T:fin_news T:earnings T:market T:sec T:sec_fin))")
+        let res = await fetch("https://api.tickertick.com/feed?q=(and (or tt:amzn tt:aapl tt:nflx tt:meta tt:goog tt:msft tt:tsla) (or T:fin_news T:earnings T:market T:sec T:sec_fin T:analysis T:industry))")
 
         let tickerTickJSON = await res.json()
         
