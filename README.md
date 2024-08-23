@@ -1,0 +1,1 @@
+Built a news aggregated on Twitter. This twitter bot fetches from the TickerTick API every 30 seconds and posts the most interesting news on Big Tech companies. This bot has been active a since late July and has gathered over 200 followers. I built this Twitter Bot because I was looking for a news aggregator for the biggest companies in the world.
